@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dmt3gijyn1u43"]
+
+[ext_resource type="Texture2D" uid="uid://d2hdyan8hxe7w" path="res://icon.svg" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://cqw3h0t67llnl" path="res://scripts/player.gd" id="1_g2els"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(237, 25)
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=1910749850]
+mass = 1000.0
+gravity_scale = 0.0
+center_of_mass_mode = 1
+center_of_mass = Vector2(-128, 0)
+script = ExtResource("1_g2els")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=178291297]
+position = Vector2(0, 7.999998)
+scale = Vector2(1.90625, 0.20312499)
+texture = ExtResource("1_3vyb7")
+
+[node name="foot1" type="Sprite2D" parent="." unique_id=36007479]
+position = Vector2(-124, 1)
+scale = Vector2(0.28320292, 0.41709182)
+texture = ExtResource("1_3vyb7")
+
+[node name="foot2" type="Sprite2D" parent="." unique_id=1167645565]
+position = Vector2(124, 0)
+scale = Vector2(0.26757807, 0.41709182)
+texture = ExtResource("1_3vyb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=828040215]
+position = Vector2(-0.5, 8.5)
+shape = SubResource("RectangleShape2D_g2els")

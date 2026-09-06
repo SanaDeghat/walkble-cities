@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bn0ly4444eibs"]
+
+[ext_resource type="PackedScene" uid="uid://dmt3gijyn1u43" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://d2hdyan8hxe7w" path="res://icon.svg" id="2_0wfyh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sugp2"]
+radius = 30.149628
+
+[node name="main" type="Node2D" unique_id=699708832]
+
+[node name="RigidBody2D" parent="." unique_id=1910749850 instance=ExtResource("1_o5qli")]
+position = Vector2(480, 254)
+center_of_mass = Vector2(128, 0)
+angular_velocity = 6.2831855
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="." unique_id=1127307645]
+mass = 50.0
+gravity_scale = 0.0
+
+[node name="Icon" type="Sprite2D" parent="RigidBody2D2" unique_id=1929996825]
+position = Vector2(551, 178)
+scale = Vector2(0.515625, 0.5)
+texture = ExtResource("2_0wfyh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2" unique_id=1424445547]
+position = Vector2(550, 179)
+shape = SubResource("CircleShape2D_sugp2")
