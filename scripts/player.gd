@@ -1,12 +1,32 @@
 extends RigidBody2D
+
 @onready var foot_1: Sprite2D = $foot1
 @onready var foot_2: Sprite2D = $foot2
-var CurrentFoor = foot_1;
-# Called when the node enters the scene tree for the first time.
+
+var spin_speed := 125.0
+var spin_dir := -1
+var pivot_foot: Sprite2D
+var current_pivot_foot_position
+
 func _ready() -> void:
-	pass # Replace with function body.
+	pivot_foot = foot_1
+	set_active_foot(foot_1)
+	
+	pivot_foot.global_position=current_pivot_foot_position
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	angular_velocity=2
+	angular_velocity = deg_to_rad(spin_speed) * spin_dir
+	if abs(pivot_foot.global_position.distance_to(current_pivot_foot_position)) > 1:
+		current_pivot_foot_position=pivot_foot.global_position
+	if Input.is_action_just_pressed("ui_accept"):
+		if pivot_foot == foot_1:
+			set_active_foot(foot_2)
+		else:
+			set_active_foot(foot_1)
+
+
+func set_active_foot(foot: Sprite2D) -> void:
+	pivot_foot = foot
+	current_pivot_foot_position=(pivot_foot.global_position)
+	center_of_mass = to_local(pivot_foot.global_position)
