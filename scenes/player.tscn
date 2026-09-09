@@ -7,7 +7,7 @@
 size = Vector2(159.5, 18.5)
 
 [node name="RigidBody2D" type="RigidBody2D" unique_id=1910749850]
-mass = 1000.0
+mass = 50.0
 gravity_scale = 0.0
 center_of_mass_mode = 1
 center_of_mass = Vector2(-128, 0)

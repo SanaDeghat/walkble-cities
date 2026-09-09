@@ -17,8 +17,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	angular_velocity = deg_to_rad(spin_speed) * spin_dir
-	if abs(pivot_foot.global_position.distance_to(current_pivot_foot_position)) > 1:
+	if abs(pivot_foot.global_position.distance_to(current_pivot_foot_position)) > 2:
 		current_pivot_foot_position=pivot_foot.global_position
+		spin_dir*=-1
 	if Input.is_action_just_pressed("ui_accept"):
 		if pivot_foot == foot_1:
 			set_active_foot(foot_2)
